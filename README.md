@@ -1,6 +1,6 @@
 
 # StudyNotion - EdTech Platform
-:rocket: [Link to website][https://studynotion-frontend.vercel.app/]
+:rocket: [Link to website][to be updated soon!!]
 
 
 ![Main Page](images/mainpage.png)
@@ -22,6 +22,8 @@ StudyNotion is a fully functional EdTech platform that enables users to create, 
 
 
 ## Introduction
+
+
 
 StudyNotion aims to provide a seamless and interactive learning experience for students, making education more accessible and engaging. Additionally, the platform serves as a platform for instructors to showcase their expertise and connect with learners across the globe.
 
