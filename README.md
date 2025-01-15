@@ -1,6 +1,6 @@
 
-# StudyNotion - EdTech Platform
-:rocket: [Screenshots of the website]
+# StudyNotion - EdTech Platform (LMS)
+<!-- :rocket: [Link to the website]: ["to be updated soon"] -->
 
 
 ![Main Page](images/mainpage.png)
