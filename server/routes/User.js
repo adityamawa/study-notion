@@ -1,20 +1,20 @@
 // Import the required modules
-const express = require("express")
+import express from "express"
 const router = express.Router()
 
 // Import the required controllers and middleware functions
-const {
+import  {
   login,
   signup,
-  sendotp,
-  changePassword,
-} = require("../controllers/Auth")
-const {
+  sendOtp,
+  updatePassword,
+} from "../controllers/auth.js"
+import  {
   resetPasswordToken,
   resetPassword,
-} = require("../controllers/ResetPassword")
+}  from "../controllers/resetPassword.js"
 
-const { auth } = require("../middlewares/auth")
+import { auth } from "../middlewares/auth.js"
 
 // Routes for Login, Signup, and Authentication
 
@@ -29,10 +29,10 @@ router.post("/login", login)
 router.post("/signup", signup)
 
 // Route for sending OTP to the user's email
-router.post("/sendotp", sendotp)
+router.post("/sendotp", sendOtp)
 
 // Route for Changing the password
-router.post("/changepassword", auth, changePassword)
+router.post("/changepassword", auth, updatePassword)
 
 // ********************************************************************************************************
 //                                      Reset Password
@@ -45,4 +45,4 @@ router.post("/reset-password-token", resetPasswordToken)
 router.post("/reset-password", resetPassword)
 
 // Export the router for use in the main application
-module.exports = router
+export default router

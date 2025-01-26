@@ -1,62 +1,64 @@
 // Import the required modules
-const express = require("express")
-const router = express.Router()
+import { Router } from "express"
+const router = Router()
+import { upload } from "../middlewares/multer.js"
 
 // Import the Controllers
 
 // Course Controllers Import
-const {
+import  {
   createCourse,
-  getAllCourses,
+  showAllCourses,
   getCourseDetails,
-  getFullCourseDetails,
-  editCourse,
-  getInstructorCourses,
-  deleteCourse,
-} = require("../controllers/Course")
+  // getFullCourseDetails,
+  // editCourse,
+  // getInstructorCourses,
+  // deleteCourse,
+} from "../controllers/Course.js"
 
 
 // Categories Controllers Import
-const {
+import {
   showAllCategories,
   createCategory,
   categoryPageDetails,
-} = require("../controllers/Category")
+} from "../controllers/category.js"
 
 // Sections Controllers Import
-const {
+import {
   createSection,
   updateSection,
   deleteSection,
-} = require("../controllers/Section")
+}  from "../controllers/Section.js"
 
 // Sub-Sections Controllers Import
-const {
+import {
   createSubSection,
   updateSubSection,
   deleteSubSection,
-} = require("../controllers/Subsection")
+} from "../controllers/Subsection.js"
 
 // Rating Controllers Import
-const {
+import {
   createRating,
   getAverageRating,
   getAllRating,
-} = require("../controllers/RatingAndReview")
+} from "../controllers/RatingAndReview.js"
 
-const {
-  updateCourseProgress
-} = require("../controllers/courseProgress");
+// import {
+//   updateCourseProgress
+// } from "../controllers/courseProgress.js";
 
 // Importing Middlewares
-const { auth, isInstructor, isStudent, isAdmin } = require("../middlewares/auth")
+import { auth, isInstructor, isStudent, isAdmin } from "../middlewares/auth.js"
+
 
 // ********************************************************************************************************
 //                                      Course routes
 // ********************************************************************************************************
 
 // Courses can Only be Created by Instructors
-router.post("/createCourse", auth, isInstructor, createCourse)
+router.post("/createCourse", auth,upload.single("thumbnailImage") ,  isInstructor, createCourse)
 //Add a Section to a Course
 router.post("/addSection", auth, isInstructor, createSection)
 // Update a Section
@@ -68,21 +70,21 @@ router.post("/updateSubSection", auth, isInstructor, updateSubSection)
 // Delete Sub Section
 router.post("/deleteSubSection", auth, isInstructor, deleteSubSection)
 // Add a Sub Section to a Section
-router.post("/addSubSection", auth, isInstructor, createSubSection)
+router.post("/addSubSection", upload.single("video"),auth, isInstructor, createSubSection)
 // Get all Registered Courses
-router.get("/getAllCourses", getAllCourses)
+// router.get("/getAllCourses", getAllCourses)
 // Get Details for a Specific Courses
 router.post("/getCourseDetails", getCourseDetails)
 // Get Details for a Specific Courses
-router.post("/getFullCourseDetails", auth, getFullCourseDetails)
+// router.post("/getFullCourseDetails", auth, getFullCourseDetails)
 // Edit Course routes
-router.post("/editCourse", auth, isInstructor, editCourse)
+// router.post("/editCourse", auth, isInstructor, editCourse)
 // Get all Courses Under a Specific Instructor
-router.get("/getInstructorCourses", auth, isInstructor, getInstructorCourses)
+// router.get("/getInstructorCourses", auth, isInstructor, getInstructorCourses)
 // Delete a Course
-router.delete("/deleteCourse", deleteCourse)
+// router.delete("/deleteCourse", deleteCourse)
 
-router.post("/updateCourseProgress", auth, isStudent, updateCourseProgress);
+// router.post("/updateCourseProgress", auth, isStudent, updateCourseProgress);
 
 // ********************************************************************************************************
 //                                      Category routes (Only by Admin)
@@ -100,4 +102,4 @@ router.post("/createRating", auth, isStudent, createRating)
 router.get("/getAverageRating", getAverageRating)
 router.get("/getReviews", getAllRating)
 
-module.exports = router
+export default router
