@@ -1,6 +1,8 @@
 
-# StudyNotion - EdTech Platform (LMS)
-<!-- :rocket: [Link to the website]: ["to be updated soon"] -->
+# StudyFI - EdTech Platform (LMS)
+
+:rocket: [Link to the website]: [https://studynotion-frontend.vercel.app/]
+
 
 
 ![Main Page](images/mainpage.png)
