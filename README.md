@@ -1,7 +1,7 @@
 
 # StudyFI - EdTech Platform (LMS)
 
-:rocket: [Link to the website]: [https://studynotion-frontend.vercel.app/]
+:rocket: [LiveDemo](https://studynotion-frontend.vercel.app/)
 
 
 
